@@ -13,15 +13,13 @@ void UzytkownikMenedzer :: rejestracjaUzytkownika() {
 }
 
 
-Uzytkownik UzytkownikMenedzer :: podajDaneNowegoUzytkownika()
-{
+Uzytkownik UzytkownikMenedzer :: podajDaneNowegoUzytkownika() {
     Uzytkownik uzytkownik;
 
     uzytkownik.ustawId(pobierzIdNowegoUzytkownika());
 
     string login;
-    do
-    {
+    do {
         cout << "Podaj login: ";
         cin >> login;
         uzytkownik.ustawLogin(login);
@@ -36,8 +34,7 @@ Uzytkownik UzytkownikMenedzer :: podajDaneNowegoUzytkownika()
 }
 
 
-int UzytkownikMenedzer :: pobierzIdNowegoUzytkownika()
-{
+int UzytkownikMenedzer :: pobierzIdNowegoUzytkownika() {
     if (uzytkownicy.empty() == true)
         return 1;
     else
@@ -45,8 +42,7 @@ int UzytkownikMenedzer :: pobierzIdNowegoUzytkownika()
 }
 
 
-bool UzytkownikMenedzer :: czyIstniejeLogin(string login)
-{
+bool UzytkownikMenedzer :: czyIstniejeLogin(string login) {
     for (int i = 0; i < uzytkownicy.size(); i++) {
         if (uzytkownicy[i].pobierzLogin() == login)
             return true;
@@ -57,12 +53,18 @@ bool UzytkownikMenedzer :: czyIstniejeLogin(string login)
 
 
 void UzytkownikMenedzer :: wypiszWszystkichUzytkownikow() {
-      for (int i = 0; i < uzytkownicy.size(); i++) {
+    for (int i = 0; i < uzytkownicy.size(); i++) {
         cout << uzytkownicy[i].pobierzId() << endl;
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
 }
+
+
+void UzytkownikMenedzer :: wczytajUzytkownikowZPliku() {
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+}
+
 
 
 

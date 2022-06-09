@@ -1,8 +1,7 @@
 #include "MetodyPomocnicze.h"
 
 
-string MetodyPomocnicze :: konwerjsaIntNaString(int liczba)
-{
+string MetodyPomocnicze :: konwerjsaIntNaString(int liczba) {
     ostringstream ss;
     ss << liczba;
     string str = ss.str();
