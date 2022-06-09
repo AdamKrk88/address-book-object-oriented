@@ -1,11 +1,6 @@
 #include "PlikZUzytkownikami.h"
 
 
-PlikZUzytkownikami :: PlikZUzytkownikami () {
-    nazwaPlikuZUzytkownikami = "Uzytkownicy.txt";
-}
-
-
 void PlikZUzytkownikami :: dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     string liniaZDanymiUzytkownika = "";
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::app);
