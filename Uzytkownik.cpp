@@ -28,3 +28,23 @@ string Uzytkownik :: pobierzLogin() {
 string Uzytkownik :: pobierzHaslo() {
     return haslo;
 }
+
+/*
+void Uzytkownik :: zmianaHaslaZalogowanegoUzytkownika(vector <Uzytkownik> &uzytkownicy, int idZalogowanegoUzytkownika)
+{
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    noweHaslo = wczytajLinie();
+
+    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+    {
+        if (itr -> id == idZalogowanegoUzytkownika)
+        {
+            itr -> haslo = noweHaslo;
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+*/
