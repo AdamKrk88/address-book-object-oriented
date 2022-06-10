@@ -33,3 +33,8 @@ void KsiazkaAdresowa :: dodajAdresata() {
 void KsiazkaAdresowa :: zmianaHaslaZalogowanegoUzytkownika() {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
+
+
+void KsiazkaAdresowa :: wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
+    adresatMenedzer.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+}

@@ -82,24 +82,28 @@ int UzytkownikMenedzer :: logowanieUzytkownika() {
                 if (itr -> pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return itr -> pobierzId();
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
+                    return idZalogowanegoUzytkownika;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            return 0;
+            idZalogowanegoUzytkownika = 0;
+            return idZalogowanegoUzytkownika;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    return 0;
+    idZalogowanegoUzytkownika = 0;
+    return idZalogowanegoUzytkownika;
 }
 
 
 int UzytkownikMenedzer :: wylogowanieUzytkownika() {
     idZalogowanegoUzytkownika = 0;
-    cout << "Zostales wylogowany" << endl;
+    cout << "Zostales wylogowany" << endl << endl;
+    system("pause");
     return idZalogowanegoUzytkownika;
 }
 

@@ -18,12 +18,15 @@ public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami) {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
     };
+
     void rejestracjaUzytkownika();
     void logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wylogowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void dodajAdresata();
+    void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+
 };
 
 #endif

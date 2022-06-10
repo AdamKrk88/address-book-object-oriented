@@ -7,23 +7,17 @@ using namespace std;
 int main() {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
     ksiazkaAdresowa.logowanieUzytkownika();
-
     ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.dodajAdresata();
-    ksiazkaAdresowa.dodajAdresata();
-
+    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
     ksiazkaAdresowa.wylogowanieUzytkownika();
-    /*   ksiazkaAdresowa.logowanieUzytkownika();
-       ksiazkaAdresowa.dodajAdresata();
-       ksiazkaAdresowa.dodajAdresata();
-      ksiazkaAdresowa.wylogowanieUzytkownika();
-
-      */
-//    ksiazkaAdresowa.logowanieUzytkownika();
-//   ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-//   ksiazkaAdresowa.rejestracjaUzytkownika();
-//   ksiazkaAdresowa.rejestracjaUzytkownika();
-//   ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    ksiazkaAdresowa.logowanieUzytkownika();
+    ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+    ksiazkaAdresowa.wylogowanieUzytkownika();
+    ksiazkaAdresowa.logowanieUzytkownika();
+    ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+    ksiazkaAdresowa.wylogowanieUzytkownika();
 
     return 0;
 }
