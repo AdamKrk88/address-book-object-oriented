@@ -19,6 +19,8 @@ public:
     int pobierzId();
     string pobierzLogin();
     string pobierzHaslo();
+
+
 };
 
 #endif

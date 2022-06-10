@@ -28,3 +28,5 @@ string Uzytkownik :: pobierzLogin() {
 string Uzytkownik :: pobierzHaslo() {
     return haslo;
 }
+
+
