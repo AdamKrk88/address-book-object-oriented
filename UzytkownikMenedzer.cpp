@@ -66,65 +66,51 @@ void UzytkownikMenedzer :: wczytajUzytkownikowZPliku() {
 }
 
 
-void UzytkownikMenedzer :: logowanieUzytkownika() {
+int UzytkownikMenedzer :: logowanieUzytkownika() {
     string login = "", haslo = "";
-    int iloscProb = 3;
 
     cout << "Podaj login: ";
     login = MetodyPomocnicze :: wczytajLinie();
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
-
     while (itr != uzytkownicy.end()) {
         if (itr -> pobierzLogin() == login) {
-            for (iloscProb; iloscProb > 0; iloscProb--) {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
                 haslo = MetodyPomocnicze :: wczytajLinie();
 
                 if (itr -> pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    idZalogowanegoUzytkownika = itr -> pobierzId();
-                    break;
+                    return itr -> pobierzId();
                 }
             }
-
-            if (iloscProb == 0) {
-                cout << "Wprowadzono 3 razy bledne haslo." << endl;
-                system("pause");
-                idZalogowanegoUzytkownika = 0;
-                break;
-            } else {
-                break;
-            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return 0;
         }
         itr++;
     }
-
-    if (itr == uzytkownicy.end()) {
-        cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
-        system("pause");
-        idZalogowanegoUzytkownika = 0;
-    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return 0;
 }
 
 
-void UzytkownikMenedzer :: wylogowanieUzytkownika() {
+int UzytkownikMenedzer :: wylogowanieUzytkownika() {
     idZalogowanegoUzytkownika = 0;
     cout << "Zostales wylogowany" << endl;
+    return idZalogowanegoUzytkownika;
 }
 
 
-void UzytkownikMenedzer :: zmianaHaslaZalogowanegoUzytkownika()
-{
+void UzytkownikMenedzer :: zmianaHaslaZalogowanegoUzytkownika() {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
     noweHaslo = MetodyPomocnicze :: wczytajLinie();
 
-    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
-    {
-        if (itr -> pobierzId() == idZalogowanegoUzytkownika)
-        {
+    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++) {
+        if (itr -> pobierzId() == idZalogowanegoUzytkownika) {
             itr -> ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
