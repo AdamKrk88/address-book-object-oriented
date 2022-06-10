@@ -20,7 +20,7 @@ public:
     string pobierzLogin();
     string pobierzHaslo();
 
-   // void zmianaHaslaZalogowanegoUzytkownika(vector <Uzytkownik> &uzytkownicy, int idZalogowanegoUzytkownika);
+
 };
 
 #endif
