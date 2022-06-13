@@ -28,6 +28,7 @@ Uzytkownik UzytkownikMenedzer :: podajDaneNowegoUzytkownika() {
     string haslo;
     cout << "Podaj haslo: ";
     cin >> haslo;
+    cin.sync();
     uzytkownik.ustawHaslo(haslo);
 
     return uzytkownik;
@@ -58,11 +59,6 @@ void UzytkownikMenedzer :: wypiszWszystkichUzytkownikow() {
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
-}
-
-
-void UzytkownikMenedzer :: wczytajUzytkownikowZPliku() {
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
 
