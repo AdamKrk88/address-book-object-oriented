@@ -31,10 +31,12 @@ public:
     };
 
     void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
-    int wylogowanieUzytkownika();
+    void logowanieUzytkownika();
+    void wylogowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
+    bool czyUzytkownikJestZalogowany();
+    int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif

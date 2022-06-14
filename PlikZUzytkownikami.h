@@ -8,7 +8,7 @@
 
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
-#include <vector>
+
 
 using namespace std;
 

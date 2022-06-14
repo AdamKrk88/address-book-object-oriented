@@ -5,6 +5,7 @@
 
 #include "UzytkownikMenedzer.h"
 #include "AdresatMenedzer.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -12,11 +13,18 @@ using namespace std;
 class KsiazkaAdresowa {
 
     UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenedzer adresatMenedzer;
+    AdresatMenedzer *adresatMenedzer;
+    Menu menu;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami) {
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+        adresatMenedzer = NULL;
+    };
 
+    ~KsiazkaAdresowa() {
+        delete adresatMenedzer;
+        adresatMenedzer = NULL;
     };
 
     void rejestracjaUzytkownika();
@@ -26,7 +34,9 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
-
+    bool czyUzytkownikJestZalogowany();
+    char wybierzOpcjeZMenuGlownego();
+    char wybierzOpcjeZMenuUzytkownika();
 };
 
 #endif

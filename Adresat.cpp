@@ -12,7 +12,6 @@ void Adresat :: ustawIdUzytkownika (int noweIdUzytkownika) {
 
 
 void Adresat :: ustawImie (string noweImie) {
-
     imie = noweImie;
 }
 

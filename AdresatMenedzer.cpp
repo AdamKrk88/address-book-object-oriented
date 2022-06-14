@@ -1,5 +1,6 @@
 #include "AdresatMenedzer.h"
 
+
 void AdresatMenedzer :: dodajAdresata() {
     Adresat adresat;
 
@@ -8,16 +9,20 @@ void AdresatMenedzer :: dodajAdresata() {
     adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);
 
+    if (plikZAdresatami.dopiszAdresataDoPliku(adresat))
+        cout << endl << "Nowy adresat zostal dodany" << endl << endl;
+    else
+        cout << endl << "Blad. Nie udalo sie dodac nowego adresata do pliku" << endl << endl;
+    system("pause");
 }
 
 
 Adresat AdresatMenedzer :: podajDaneNowegoAdresata() {
     Adresat adresat;
 
-    adresat.ustawId(++idOstatniegoAdresata);
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1);
+    adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze :: wczytajLinie());
@@ -40,28 +45,9 @@ Adresat AdresatMenedzer :: podajDaneNowegoAdresata() {
 }
 
 
-void AdresatMenedzer :: ustawiDZalogowanegoUzytkownika(int noweId) {
-    idZalogowanegoUzytkownika = noweId;
-}
-
-
-int AdresatMenedzer :: pobierziDZalogowanegoUzytkownika() {
-    return idZalogowanegoUzytkownika;
-}
-
-
-void AdresatMenedzer :: wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
-    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
-}
-
-
-void AdresatMenedzer :: wyczyscWektorZAdresatami() {
-    adresaci.clear();
-}
-
-
 void AdresatMenedzer :: wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
     system("cls");
+
     if (!adresaci.empty()) {
         cout << "             >>> ADRESACI <<<" << endl;
         cout << "-----------------------------------------------" << endl;
@@ -72,6 +58,7 @@ void AdresatMenedzer :: wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
     } else {
         cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
     }
+
     system("pause");
 }
 

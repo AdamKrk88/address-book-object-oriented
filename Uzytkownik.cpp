@@ -1,5 +1,6 @@
 #include "Uzytkownik.h"
 
+
 void Uzytkownik :: ustawId(int noweId) {
     id = noweId;
 }
