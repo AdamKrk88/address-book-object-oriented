@@ -59,3 +59,13 @@ char KsiazkaAdresowa :: wybierzOpcjeZMenuGlownego() {
 char KsiazkaAdresowa :: wybierzOpcjeZMenuUzytkownika() {
     return menu.wybierzOpcjeZMenuUzytkownika();
 }
+
+
+void KsiazkaAdresowa :: wyszukajAdresatowPoImieniuDlaZalogowanegoUzytkownika() {
+    adresatMenedzer -> wyszukajAdresatowPoImieniuDlaZalogowanegoUzytkownika();
+}
+
+
+void KsiazkaAdresowa :: wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika() {
+    adresatMenedzer -> wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika();
+}
