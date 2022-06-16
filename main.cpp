@@ -34,12 +34,24 @@ int main() {
                 ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-                ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniuDlaZalogowanegoUzytkownika();
                 break;
             case '3':
-                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika();
                 break;
             case '4':
+                ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+                break;
+            case '5':
+                ksiazkaAdresowa.usunWybranegoAdresata();
+                break;
+            case '6':
+                ksiazkaAdresowa.edytujAdresata();
+                break;
+            case '7':
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                break;
+            case '8':
                 ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
             default:
