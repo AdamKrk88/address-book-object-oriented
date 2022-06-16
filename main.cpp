@@ -43,7 +43,7 @@ int main() {
                 ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
                 break;
             case '5':
-
+                ksiazkaAdresowa.usunWybranegoAdresata();
                 break;
             case '6':
 

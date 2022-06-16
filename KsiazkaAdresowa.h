@@ -39,6 +39,7 @@ public:
     char wybierzOpcjeZMenuUzytkownika();
     void wyszukajAdresatowPoImieniuDlaZalogowanegoUzytkownika();
     void wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika();
+    void usunWybranegoAdresata();
 };
 
 #endif

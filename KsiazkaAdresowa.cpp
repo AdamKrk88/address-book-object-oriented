@@ -69,3 +69,8 @@ void KsiazkaAdresowa :: wyszukajAdresatowPoImieniuDlaZalogowanegoUzytkownika() {
 void KsiazkaAdresowa :: wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika() {
     adresatMenedzer -> wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika();
 }
+
+
+void KsiazkaAdresowa :: usunWybranegoAdresata() {
+    adresatMenedzer -> usunWybranegoAdresata();
+}
