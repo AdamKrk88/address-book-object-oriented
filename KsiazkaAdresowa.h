@@ -40,6 +40,7 @@ public:
     void wyszukajAdresatowPoImieniuDlaZalogowanegoUzytkownika();
     void wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika();
     void usunWybranegoAdresata();
+    void edytujAdresata();
 };
 
 #endif

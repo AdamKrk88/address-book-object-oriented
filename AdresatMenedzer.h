@@ -8,6 +8,7 @@
 #include "PlikZAdresatami.h"
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -34,6 +35,7 @@ public:
     void wyszukajAdresatowPoImieniuDlaZalogowanegoUzytkownika();
     void wyszukajAdresatowPoNazwiskuDlaZalogowanegoUzytkownika();
     void usunWybranegoAdresata();
+    void edytujAdresata();
 };
 
 #endif

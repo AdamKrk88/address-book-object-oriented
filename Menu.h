@@ -10,13 +10,12 @@ using namespace std;
 
 class Menu {
 
-    char wybor;
-
 public:
     Menu();
 
     char wybierzOpcjeZMenuGlownego();
     char wybierzOpcjeZMenuUzytkownika();
+    char wybierzOpcjeZMenuEdycjaAdresata();
 };
 
 #endif
