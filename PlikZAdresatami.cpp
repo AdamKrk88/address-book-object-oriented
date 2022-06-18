@@ -18,20 +18,22 @@ string PlikZAdresatami :: zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiK
 
 bool PlikZAdresatami :: dopiszAdresataDoPliku(Adresat adresat) {
     string liniaZDanymiAdresata = "";
+    bool czyPlikZAdresatamiJestPusty = czyPlikJestPusty();
+
     fstream plikTekstowy;
-    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::out | ios::app);
+    plikTekstowy.open(pobierzNazwaPliku().c_str(), ios::out | ios::app);
 
-    if (plikTekstowy.good() == true) {
-        liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+    if (plikTekstowy.good()) {
+    liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (czyPlikJestPusty(plikTekstowy) == true) {
-            plikTekstowy << liniaZDanymiAdresata;
-        } else {
-            plikTekstowy << endl << liniaZDanymiAdresata ;
-        }
-        idOstatniegoAdresata++;
-        plikTekstowy.close();
-        return true;
+    if (czyPlikZAdresatamiJestPusty) {
+        plikTekstowy << liniaZDanymiAdresata;
+    } else {
+        plikTekstowy << endl << liniaZDanymiAdresata ;
+    }
+    idOstatniegoAdresata++;
+    plikTekstowy.close();
+    return true;
     }
 
     return false;
@@ -44,9 +46,9 @@ vector <Adresat> PlikZAdresatami :: wczytajAdresatowZalogowanegoUzytkownikaZPlik
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
+    plikTekstowy.open(pobierzNazwaPliku().c_str(), ios::in);
 
-    if (plikTekstowy.good() == true) {
+    if (plikTekstowy.good()) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
             if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)) {
                 adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -134,10 +136,10 @@ void PlikZAdresatami :: usunWybranegoAdresataZPliku (int idUsuwanegoAdresata) {
     int idAdresataWczytaneZPliku = 0;
     int numerWczytanejLinii = 1;
 
-    odczytywanyPlikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
+    odczytywanyPlikTekstowy.open(pobierzNazwaPliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
 
-    if (odczytywanyPlikTekstowy.good() == true) {
+    if (odczytywanyPlikTekstowy.good()) {
         while (getline(odczytywanyPlikTekstowy, wczytanaLinia)) {
             idAdresataWczytaneZPliku = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia);
 
@@ -166,8 +168,8 @@ void PlikZAdresatami :: usunWybranegoAdresataZPliku (int idUsuwanegoAdresata) {
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
-        usunPlik(NAZWA_PLIKU);
-        zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU);
+        usunPlik(pobierzNazwaPliku());
+        zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, pobierzNazwaPliku());
     }
 }
 
@@ -194,10 +196,10 @@ void PlikZAdresatami :: aktualizujDaneWybranegoAdresataWPliku(Adresat adresat) {
     int numerWczytanejLinii = 1;
     int idWczytanegoAdresataZPliku = 0;
 
-    odczytywanyPlikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
+    odczytywanyPlikTekstowy.open(pobierzNazwaPliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
 
-    if (odczytywanyPlikTekstowy.good() == true) {
+    if (odczytywanyPlikTekstowy.good()) {
         while (getline(odczytywanyPlikTekstowy, wczytanaLinia)) {
             idWczytanegoAdresataZPliku = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia);
 
@@ -217,8 +219,8 @@ void PlikZAdresatami :: aktualizujDaneWybranegoAdresataWPliku(Adresat adresat) {
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
-        usunPlik(NAZWA_PLIKU);
-        zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU);
+        usunPlik(pobierzNazwaPliku());
+        zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, pobierzNazwaPliku());
 
         cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
     }
